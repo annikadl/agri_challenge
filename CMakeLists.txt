@@ -14,6 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
   gazebo_plugins
   gazebo_ros
   roscpp
+  actionlib
 )
 
 catkin_package()
@@ -23,9 +24,14 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-include_directories(${GAZEBO_INCLUDE_DIRS})            
+
+include_directories(${GAZEBO_INCLUDE_DIRS})     
+
 link_directories(${GAZEBO_LIBRARY_DIRS})               
 list(APPEND CMAKE_CXX_FLAGS "${GAZEBO_CXX_FLAGS}")
+
+add_executable(agri_challenge src/action_client.cpp)
+target_link_libraries(agri_challenge ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
 
 install(DIRECTORY launch/
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch

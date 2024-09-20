@@ -28,6 +28,7 @@
   <include file="$(find agri_challenge)/launch/tomato_field.launch"/>
  
   <!-- spawn robot in simulation -->
+  <include file="$(find tomato_detection)/launch/rviz.launch"/>
   <include file="$(find tiago_gazebo)/launch/tiago_spawn.launch">
     <arg name="arm" value="$(arg arm)"/>
     <arg name="end_effector" value="$(arg end_effector)"/>
